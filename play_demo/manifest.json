@@ -1,0 +1,24 @@
+{
+    "name": "小猫咪追比格犬",
+    "short_name": "猫咪追狗",
+    "description": "一款可爱的互动小游戏，控制小猫咪发射爱心追上调皮的比格犬！",
+    "version": "1.0.0",
+    "manifest_version": 3,
+    "start_url": ".",
+    "display": "standalone",
+    "orientation": "portrait",
+    "background_color": "#FFB6C1",
+    "theme_color": "#FF69B4",
+    "icons": [
+        {
+            "src": "icon-192.png",
+            "sizes": "192x192",
+            "type": "image/png"
+        },
+        {
+            "src": "icon-512.png",
+            "sizes": "512x512",
+            "type": "image/png"
+        }
+    ]
+}
