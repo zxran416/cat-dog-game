@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="theme-color" content="#FF69B4">
+    <meta name="description" content="一款可爱的互动小游戏，控制小猫咪发射爱心追上调皮的比格犬！">
+    <title>小猫咪追比格犬</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="manifest" href="manifest.json">
+    <link rel="apple-touch-icon" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAGAAAABgCAYAAADimHc4AAAABHNCSVQICAgIfAhkiAAAAAlwSFlzAAAOxAAADsQBlSsOGwAAABl0RVh0U29mdHdhcmUAd3d3Lmlua3NjYXBlLm9yZ5vuPBoAAADWSURBVGiB7ZgxDoMwDEV/P9K0l5E4gY6cO8m0v7Aj3P7yABrJATiA4ePHjxo59a92Bw48fHAwcOHw6BBgYGBgYGBgbGwCOx58h6BdT3Y6xw4dGAwcOHA4BBgYGBgYGBgbGwCOx58h6BdT3Y6xw4dGAwcOHA4BBgYGBgYGBgbGwCOx58h6BdT3Y6xw4dGAwcOHA4BBgYGBgYGBgbGwCOx58h6BdT3Y6xw4dGAwcOHA4BBgYGBgYGBgbGwCOx58h6BdT3Y6xw4dGAwcOHA4BBgYGBgYGBgbGwCOx58h6BdT3Y6xw4dGAwcOHA4BBgYGBgYGBgbGwCOx58h6BdT3Y6xw4dGAwcOHA4BBgYGBgYGBgbGwCOx58h6BdT3Y6xw4dGAwcOHA4BBgYGBgYGBgbGwCOx58h6BdT3Y6xw4dGAwcOHAD7AFe8f+A8P+EAAAAASUVORK5CYII=">
+</head>
+<body>
+    <div class="game-container">
+        <!-- 开始界面 -->
+        <div id="startScreen" class="screen">
+            <h1 class="game-title">🐱 小猫咪追比格犬 🐶</h1>
+            <p class="game-subtitle">发射爱心，追上调皮的比格犬！</p>
+            <button id="startBtn" class="btn">开始游戏</button>
+            <div class="instructions">
+                <h3>操作说明</h3>
+                <p>⬆️⬇️⬅️➡️ 方向键或 WASD 控制移动</p>
+                <p>空格键 发射爱心</p>
+                <p>点击屏幕也可发射</p>
+            </div>
+        </div>
+
+        <!-- 游戏界面 -->
+        <div id="gameScreen" class="screen hidden">
+            <div class="score-panel">
+                <span class="level-label">第 <span id="level" class="level-value">1</span> 关</span>
+                <span class="score-label">得分:</span>
+                <span id="score" class="score-value">0</span>
+                <span class="score-target">/ 10</span>
+            </div>
+            <canvas id="gameCanvas"></canvas>
+        </div>
+
+        <!-- 通关界面 -->
+        <div id="winScreen" class="screen hidden">
+            <h1 class="win-title">🎉 恭喜通关！🎉</h1>
+            <p class="win-score">最终得分: <span id="finalScore">10</span> 分</p>
+            <p class="win-message">小猫咪成功追上了比格犬！</p>
+            <button id="restartBtn" class="btn">再玩一次</button>
+        </div>
+    </div>
+
+    <script src="game.js"></script>
+<script>
+    if ('serviceWorker' in navigator) {
+        window.addEventListener('load', () => {
+            navigator.serviceWorker.register('sw.js')
+                .then((registration) => {
+                    console.log('ServiceWorker registration successful');
+                })
+                .catch((err) => {
+                    console.log('ServiceWorker registration failed:', err);
+                });
+        });
+    }
+</script>
+</body>
+</html>
